@@ -88,9 +88,4 @@ public class UploadController {
         fileStorageService.mergeFile(guid, fileName);
         return ResponseEntity.ok(Result.ok().build());
     }
-
-    public static void main(String[] args) {
-        System.out.println(491*100/491);
-        System.out.println((double) 1*100/491);
-    }
 }
