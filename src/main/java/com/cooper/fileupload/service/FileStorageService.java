@@ -66,6 +66,13 @@ public interface FileStorageService {
     void deleteAll() throws FileStorageException;
 
     /**
+     * 删除文件
+     * @param guid
+     * @throws FileStorageException
+     */
+    void deleteChunk(String guid) throws Exception;
+
+    /**
      * 大文件分片处理
      * @param request
      * @param response

@@ -74,6 +74,13 @@ public class UploadController {
         return ResponseEntity.ok(Result.ok().build());
     }
 
+    @PostMapping("/files/chunk/delete")
+    @ResponseBody
+    public ResponseEntity deleteChunk(String guid) throws Exception {
+        fileStorageService.deleteChunk(guid);
+        return ResponseEntity.ok(Result.ok().build());
+    }
+
     @PostMapping("/files/part")
     @ResponseBody
     public ResponseEntity handleBigFile(HttpServletRequest request, HttpServletResponse response,

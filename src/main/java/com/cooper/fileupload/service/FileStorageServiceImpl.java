@@ -123,6 +123,12 @@ public class FileStorageServiceImpl implements FileStorageService {
     }
 
     @Override
+    public void deleteChunk(String guid) throws Exception {
+        Path tempFileDir = Paths.get(this.fileStorageLocation.toAbsolutePath().toString(), guid);
+        FileSystemUtils.deleteRecursively(tempFileDir.toAbsolutePath());
+    }
+
+    @Override
     public void storeBigFile(HttpServletRequest request, HttpServletResponse response,
                                String guid, Integer chunk, Integer chunks, MultipartFile file) throws FileStorageException {
         try {
