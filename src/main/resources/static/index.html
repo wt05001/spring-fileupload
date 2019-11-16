@@ -1,0 +1,41 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" >
+    <title></title>
+    <script src="https://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        function fileUpload () {
+            var formData = new FormData()
+            // var imgFile = document.getElementById('imgFile').files[0] // 获取图片文件
+            var recordFile = document.getElementById('recordFile').files[0] // 获取录音文件
+            // 如果上传文件需要带参数
+            // formData.append('file', imgFile)
+            formData.append('file', recordFile)
+            // 发送ajax请求
+            $.ajax({
+                url: 'http://192.168.235.16:8080/portal/business/files/upload',
+                type: 'post',
+                dataType: 'json',
+                data: formData,
+                async: false,
+                cache: false, // 上传文件不缓存
+                contentType: false, // 因为表单已经声明enctype="multipart/form-data",所以不需要设置其他contentType
+                processData: false, // 因为data是formData对象，所以不需要做数据处理
+                success: function (result) {
+                    console.log('file upload successed')
+                },
+                error: function (err) {
+                    console.log('file upload error')
+                    throw new Error(err)
+                }
+            })
+        }
+    </script>
+</head>
+<body>
+<form enctype="multipart/form-data">
+<!--    <input id="imgFile" type="file"/>-->
+    <input id="recordFile" type="file"/>
+    <button type="submit" class="primary submit-btn" onclick="fileUpload()">Submit</button>
+</form>
+</body>
+</html>
