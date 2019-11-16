@@ -23,10 +23,12 @@
                 contentType: false, // 因为表单已经声明enctype="multipart/form-data",所以不需要设置其他contentType
                 processData: false, // 因为data是formData对象，所以不需要做数据处理
                 success: function (result) {
-                    console.log('file upload successed')
+                    // console.log('file upload successed')
+                    alert('file upload successed')
                 },
                 error: function (err) {
-                    console.log('file upload error')
+                    // console.log('file upload error')
+                    alert('file upload error')
                     throw new Error(err)
                 }
             })
