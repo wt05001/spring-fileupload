@@ -1,5 +1,6 @@
 var prefix_url = 'http://192.168.235.16:8080/portal/business';
 // var prefix_url = 'http://localhost:8080/api/upload';
+
 var shardSize = 30 * 1024 * 1024;         //以1MB为一个分片
 
 var status = 0;
