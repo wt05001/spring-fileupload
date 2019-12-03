@@ -1,5 +1,6 @@
-var prefix_url = 'http://localhost:8080/api/upload';
-var shardSize = 1 * 1024 * 1024;         //以1MB为一个分片
+var prefix_url = 'http://192.168.235.16:8080/portal/business';
+// var prefix_url = 'http://localhost:8080/api/upload';
+var shardSize = 30 * 1024 * 1024;         //以1MB为一个分片
 
 var status = 0;
 var page = {
@@ -35,6 +36,7 @@ var page = {
             url: prefix_url + "/files/part",
             type: "POST",
             data: form,
+            // async: false,        //异步 https://www.cnblogs.com/shiysin/p/10433162.html
             async: true,        //异步
             processData: false,  //很重要，告诉jquery不要对form进行处理
             contentType: false,  //很重要，指定为false才能形成正确的Content-Type
